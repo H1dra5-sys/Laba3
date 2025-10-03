@@ -18,7 +18,7 @@ int main() {
   cout << "a = ";
   cin >> a;
 
-  for(iteration = 0; iteration < 6; iteration += 1) {
+  for (iteration = 0; iteration < 6; iteration += 1) {
     cout << "W =";
     cin >> W;
     Pe = W * d / a;
