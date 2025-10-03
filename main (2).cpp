@@ -10,15 +10,15 @@ using namespace std;
 int main() {
 
   double a, W, pow1, Pe, Nu, d;
-  int i;
+  int iteration;
 
   pow1 = 3.0 * pow(10.0, 3.0);
-  cout << "d =";
+  cout << "d = ";
   cin >> d; 
-  cout << "a =";
+  cout << "a = ";
   cin >> a;
 
-  for(i = 0; i < 6; i += 1) {
+  for(iteration = 0; iteration < 6; iteration += 1) {
     cout << "W =";
     cin >> W;
     Pe = W * d / a;
@@ -27,10 +27,8 @@ int main() {
     } else {
       Nu = 5.0 + 0.021 * Pe;
     }
-     
+
      cout << "Nu = " << Nu << endl
          << "Pe = " << Pe << endl;
   }
 }
-
-  
