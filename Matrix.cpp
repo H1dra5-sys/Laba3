@@ -10,46 +10,47 @@ using namespace std;
 
 int main() {
 
-  int rows, row_element, columns, column_element,  matrix[rows] [columns];
-  
+  int numberOfRows, rowElement, numberOfColumns, columnElement,  matrix[numberOfRows] [numberOfColumns];
+
   cout << "Enter the number of rows of the matrix: ";
-  cin  >> rows;
+  cin  >> numberOfRows;
   cout << endl;
-  
+
   cout << "Enter the number of columns of the matrix: ";
-  cin  >> columns;
+  cin  >> numberOfColumns;
   cout << endl;
-  
+
   cout << "Enter the elements of the matrix: " << endl;
-  for (row_element = 0; row_element < rows; ++row_element) {
-    for (column_element = 0; column_element < columns; ++column_element) {
-      cin >> matrix[row_element] [column_element];
+  for (rowElement = 0; rowElement < numberOfRows; ++rowElement) {
+    for (columnElement = 0; columnElement < numberOfColumns; ++columnElement) {
+      cin >> matrix[rowElement] [columnElement];
     }
   }
-  
+
   cout << endl
        << "The usual matrix" << endl; 
-  for (row_element = 0; row_element < rows; ++row_element) {
-    for (column_element = 0; column_element < columns; ++column_element) {
-  cout << matrix[row_element] [column_element] << " ";
+  for (rowElement = 0; rowElement < numberOfRows; ++rowElement) {
+    for (columnElement = 0; columnElement < numberOfColumns; ++columnElement) {
+      cout << matrix[rowElement] [columnElement] << " ";
     }
     cout << endl;
   }
-  
+
   cout << endl
        << "The transposed matrix" << endl;  
-  for (row_element = 0; row_element < columns; ++row_element) {
-    for (column_element = 0; column_element < rows; ++column_element) {
-  cout << matrix[column_element] [row_element] << " ";
+  for (rowElement = 0; rowElement < numberOfColumns; ++rowElement) {
+    for (columnElement = 0; columnElement < numberOfRows; ++columnElement) {
+      cout << matrix[columnElement] [rowElement] << " ";
     }
     cout << endl;
   }
-  
+
   cout << endl
        << "The main diagonal" << endl;
-  for (row_element = 0; row_element < columns; ++row_element) {
-      cout << matrix[row_element] [row_element] << " ";
+  for (rowElement = 0; rowElement < numberOfColumns; ++rowElement) {
+    cout << matrix[rowElement] [rowElement] << " ";
   }
-  
+
   cout << endl;
 }
+      
