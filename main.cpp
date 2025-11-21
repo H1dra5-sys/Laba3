@@ -56,7 +56,7 @@ void printMonth(int month, int year) {
     
   daysInMonth = getDaysInMonth(month, year);
   firstDay = getFirstDayOfMonth(month, year);
-  startDay = (firstDay + 5) % 7;
+  startDay = (firstDay + 6) % 7;
   currentDay = 1;
     
   for (counter = 0; counter < startDay; ++counter) {
@@ -83,4 +83,5 @@ int main() {
     printMonth(month, year);
   }
 }
+
 
