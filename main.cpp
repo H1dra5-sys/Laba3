@@ -32,7 +32,7 @@ int getDaysInMonth(int month, int year) {
 int getFirstDayOfMonth(int month, int year) {
   if (month < 3) {
     month += 12;
-    year--;
+    --year;
   }
 yearLastTwoDigits = year % 100;
 century = year / 100;
@@ -83,3 +83,4 @@ int main() {
     printMonth(month, year);
   }
 }
+
