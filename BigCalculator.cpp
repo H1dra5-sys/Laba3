@@ -1,7 +1,7 @@
-/***********************
-* Автор: Коновалов К.М.*
-* Работа: Календарь    *
-************************/
+/***********************************
+* РЎРґРµР»Р°Р»: РљРѕРЅРѕРІР°Р»РѕРІ Рљ.Рњ.           *
+* Р Р°Р±РѕС‚Р°: РђСЂРёС„РјРµС‚РёРєР° РґР»РёРЅРЅС‹С… С‡РёСЃРµР» *
+***********************************/
 
 #include <iostream>
 #include <iomanip>
@@ -16,8 +16,7 @@ vector <int> bigSum(vector <int> firstBigArray, vector <int> secondBigArray) {
 
   vector<int> theSumOfTheArrays;
   string firstHugeNumber, secondHugeNumber;
-  int  theDigitInTheFirstHugeNumber, theNumberInYourMind, digitOfTheNumber, theDigitInTheSecondHugeNumber, theSumOfLargeNumbers;
-  int count;
+  int  theDigitInTheFirstHugeNumber, theNumberInYourMind, digitOfTheNumber, theDigitInTheSecondHugeNumber, theSumOfLargeNumbers, count;
 
   digitOfTheNumber = 0;
 
@@ -82,7 +81,7 @@ vector<int> bigMultiply(vector<int> firstBigArray, vector<int> secondBigArray) {
   vector<int> zeroResult, multiplicationResult;
   int resultSize, index, firstBigArrayIndex, carryValue, secondBigArrayIndex, resultPosition, digitProduct, totalSum, remainingCarryPosition;
 
-  //Проверяем является ли хоть одно число нулём
+  //ГЏГ°Г®ГўГҐГ°ГїГҐГ¬ ГїГўГ«ГїГҐГІГ±Гї Г«ГЁ ГµГ®ГІГј Г®Г¤Г­Г® Г·ГЁГ±Г«Г® Г­ГіГ«ВёГ¬
   firstBigArrayIsZero = (firstBigArray.size() == 1 and firstBigArray[0] == 0);
   secondBigArrayIsZero = (secondBigArray.size() == 1 and secondBigArray[0] == 0);
   if (firstBigArrayIsZero or secondBigArrayIsZero) {
@@ -90,43 +89,43 @@ vector<int> bigMultiply(vector<int> firstBigArray, vector<int> secondBigArray) {
     return zeroResult;
   }
 
-  //Результат
+  //ГђГҐГ§ГіГ«ГјГІГ ГІ
   resultSize = firstBigArray.size() + secondBigArray.size();
 
-  // Заполняем результат нулями
+  // Г‡Г ГЇГ®Г«Г­ГїГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ Г­ГіГ«ГїГ¬ГЁ
   for (index = 0; index < resultSize; ++index) {
     multiplicationResult.push_back(0);
   }
 
-  // Умножаем в столбик
+  // Г“Г¬Г­Г®Г¦Г ГҐГ¬ Гў Г±ГІГ®Г«ГЎГЁГЄ
   for (firstBigArrayIndex = 0; firstBigArrayIndex < firstBigArray.size(); ++firstBigArrayIndex) {
-    carryValue = 0;  // значение переноса
+    carryValue = 0;  // Г§Г­Г Г·ГҐГ­ГЁГҐ ГЇГҐГ°ГҐГ­Г®Г±Г 
 
     for (secondBigArrayIndex = 0; secondBigArrayIndex < secondBigArray.size(); ++secondBigArrayIndex) {
-      // Вычисляем позицию в результирующем векторе
+      // Г‚Г»Г·ГЁГ±Г«ГїГҐГ¬ ГЇГ®Г§ГЁГ¶ГЁГѕ Гў Г°ГҐГ§ГіГ«ГјГІГЁГ°ГіГѕГ№ГҐГ¬ ГўГҐГЄГІГ®Г°ГҐ
       resultPosition = firstBigArrayIndex + secondBigArrayIndex;
 
-      // Умножаем текущие цифры
+      // Г“Г¬Г­Г®Г¦Г ГҐГ¬ ГІГҐГЄГіГ№ГЁГҐ Г¶ГЁГґГ°Г»
       digitProduct = firstBigArray[firstBigArrayIndex] * secondBigArray[secondBigArrayIndex];
 
-      // Суммируем с уже имеющимся значением и переносом
+      // Г‘ГіГ¬Г¬ГЁГ°ГіГҐГ¬ Г± ГіГ¦ГҐ ГЁГ¬ГҐГѕГ№ГЁГ¬Г±Гї Г§Г­Г Г·ГҐГ­ГЁГҐГ¬ ГЁ ГЇГҐГ°ГҐГ­Г®Г±Г®Г¬
       totalSum = digitProduct + multiplicationResult[resultPosition] + carryValue;
 
-      // Обновляем значение в результате (единицы)
+      // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ Г§Г­Г Г·ГҐГ­ГЁГҐ Гў Г°ГҐГ§ГіГ«ГјГІГ ГІГҐ (ГҐГ¤ГЁГ­ГЁГ¶Г»)
       multiplicationResult[resultPosition] = totalSum % 10;
 
-      // Обновляем перенос (десятки)
+      // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ ГЇГҐГ°ГҐГ­Г®Г± (Г¤ГҐГ±ГїГІГЄГЁ)
       carryValue = totalSum / 10;
     }
 
-    // Если остался перенос после умножения на все цифры
+    // Г…Г±Г«ГЁ Г®Г±ГІГ Г«Г±Гї ГЇГҐГ°ГҐГ­Г®Г± ГЇГ®Г±Г«ГҐ ГіГ¬Г­Г®Г¦ГҐГ­ГЁГї Г­Г  ГўГ±ГҐ Г¶ГЁГґГ°Г»
     if (carryValue > 0) {
       remainingCarryPosition = firstBigArrayIndex + secondBigArray.size();
       multiplicationResult[remainingCarryPosition] = carryValue;
     }
   }
 
-  // Удаляем незначащие нули в начале числа
+  // Г“Г¤Г Г«ГїГҐГ¬ Г­ГҐГ§Г­Г Г·Г Г№ГЁГҐ Г­ГіГ«ГЁ Гў Г­Г Г·Г Г«ГҐ Г·ГЁГ±Г«Г 
   while (multiplicationResult.size() > 1 and multiplicationResult.back() == 0) {
     multiplicationResult.pop_back();
   }
@@ -142,11 +141,11 @@ bool bigComparison(vector<int> firstBigArrayDigits, vector<int> secondBigArrayDi
   secondBigArrayHasMoreDigits = (firstBigArrayDigits.size() < secondBigArrayDigits.size());
 
   if (firstBigArrayHasMoreDigits) {
-    return true;  // первое число больше
+    return true;  // ГЇГҐГ°ГўГ®ГҐ Г·ГЁГ±Г«Г® ГЎГ®Г«ГјГёГҐ
   }
 
   if (secondBigArrayHasMoreDigits) {
-    return false; // второе число больше
+    return false; // ГўГІГ®Г°Г®ГҐ Г·ГЁГ±Г«Г® ГЎГ®Г«ГјГёГҐ
   }
 
   for (digitPosition = firstBigArrayDigits.size() - 1; digitPosition >= 0; --digitPosition) {
@@ -154,15 +153,15 @@ bool bigComparison(vector<int> firstBigArrayDigits, vector<int> secondBigArrayDi
     digitFromsecondBigArray = secondBigArrayDigits[digitPosition];
         
     if (digitFromfirstBigArray > digitFromsecondBigArray) {
-      return true;  // первое число больше
+      return true;  // ГЇГҐГ°ГўГ®ГҐ Г·ГЁГ±Г«Г® ГЎГ®Г«ГјГёГҐ
     }
 
     if (digitFromfirstBigArray < digitFromsecondBigArray) {
-      return true; // второе число больше
+      return true; // ГўГІГ®Г°Г®ГҐ Г·ГЁГ±Г«Г® ГЎГ®Г«ГјГёГҐ
     }
   }
 
-  return false;  // числа равны
+  return false;  // Г·ГЁГ±Г«Г  Г°Г ГўГ­Г»
 }
 vector<int> bigDivide(vector<int> firstBigArray, vector<int> secondBigArray) {
 	
@@ -170,34 +169,34 @@ vector<int> bigDivide(vector<int> firstBigArray, vector<int> secondBigArray) {
   vector<int> quotientResult, currentRemainder;
   bool isRemainderGreater, isDivisionByZero, isDividendSmaller;
 
-   // Проверка деления на ноль
+   // ГЏГ°Г®ГўГҐГ°ГЄГ  Г¤ГҐГ«ГҐГ­ГЁГї Г­Г  Г­Г®Г«Гј
   isDivisionByZero = (secondBigArray.size() == 1 && secondBigArray[0] == 0);
   if (isDivisionByZero) {
     return { 0 };
   }
 
-  // Если делимое меньше делителя
+  // Г…Г±Г«ГЁ Г¤ГҐГ«ГЁГ¬Г®ГҐ Г¬ГҐГ­ГјГёГҐ Г¤ГҐГ«ГЁГІГҐГ«Гї
   isDividendSmaller = (firstBigArray.size() < secondBigArray.size());
   if (isDividendSmaller) {
     return { 0 };
   }
 
-  // Основной цикл деления
+  // ГЋГ±Г­Г®ГўГ­Г®Г© Г¶ГЁГЄГ« Г¤ГҐГ«ГҐГ­ГЁГї
   for (positionIndex = firstBigArray.size() - 1; positionIndex >= 0; --positionIndex) {
-    // Добавляем следующую цифру к остатку
+    // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ Г±Г«ГҐГ¤ГіГѕГ№ГіГѕ Г¶ГЁГґГ°Гі ГЄ Г®Г±ГІГ ГІГЄГі
     currentRemainder.insert(currentRemainder.begin(), firstBigArray[positionIndex]);
 
-    // Удаляем ведущие нули из остатка
+    // Г“Г¤Г Г«ГїГҐГ¬ ГўГҐГ¤ГіГ№ГЁГҐ Г­ГіГ«ГЁ ГЁГ§ Г®Г±ГІГ ГІГЄГ 
   while (currentRemainder.size() > 1 && currentRemainder.back() == 0) {
     currentRemainder.pop_back();
   }
 
-  // Подбираем цифру частного
+  // ГЏГ®Г¤ГЎГЁГ°Г ГҐГ¬ Г¶ГЁГґГ°Гі Г·Г Г±ГІГ­Г®ГЈГ®
   quotientDigit = 0;
 
-  // Сравниваем остаток с делителем
+  // Г‘Г°Г ГўГ­ГЁГўГ ГҐГ¬ Г®Г±ГІГ ГІГ®ГЄ Г± Г¤ГҐГ«ГЁГІГҐГ«ГҐГ¬
   while (true) {
-    // Проверяем, больше ли остаток делителя
+    // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, ГЎГ®Г«ГјГёГҐ Г«ГЁ Г®Г±ГІГ ГІГ®ГЄ Г¤ГҐГ«ГЁГІГҐГ«Гї
      isRemainderGreater = false;
 
   if (currentRemainder.size() > secondBigArray.size()) {
@@ -215,15 +214,15 @@ vector<int> bigDivide(vector<int> firstBigArray, vector<int> secondBigArray) {
       }
     }
 
-  // Если остаток меньше делителя, выходим
+  // Г…Г±Г«ГЁ Г®Г±ГІГ ГІГ®ГЄ Г¬ГҐГ­ГјГёГҐ Г¤ГҐГ«ГЁГІГҐГ«Гї, ГўГ»ГµГ®Г¤ГЁГ¬
   if (!isRemainderGreater) {
     break;
   }
 
-  // Увеличиваем цифру частного
+  // Г“ГўГҐГ«ГЁГ·ГЁГўГ ГҐГ¬ Г¶ГЁГґГ°Гі Г·Г Г±ГІГ­Г®ГЈГ®
   quotientDigit = quotientDigit + 1;
 
-  // Вычитаем делитель из остатка
+  // Г‚Г»Г·ГЁГІГ ГҐГ¬ Г¤ГҐГ«ГЁГІГҐГ«Гј ГЁГ§ Г®Г±ГІГ ГІГЄГ 
   borrowValue = 0;
   for (digitIndex = 0; digitIndex < currentRemainder.size(); ++digitIndex) {
     currentDigit = currentRemainder[digitIndex] - borrowValue;
@@ -239,17 +238,17 @@ vector<int> bigDivide(vector<int> firstBigArray, vector<int> secondBigArray) {
   currentRemainder[digitIndex] = currentDigit - divisorDigit;
   }
 
-  // Удаляем ведущие нули после вычитания
+  // Г“Г¤Г Г«ГїГҐГ¬ ГўГҐГ¤ГіГ№ГЁГҐ Г­ГіГ«ГЁ ГЇГ®Г±Г«ГҐ ГўГ»Г·ГЁГІГ Г­ГЁГї
   while (currentRemainder.size() > 1 && currentRemainder.back() == 0) {
     currentRemainder.pop_back();
   }
   }
 
-  // Добавляем найденную цифру к результату
+  // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ Г­Г Г©Г¤ГҐГ­Г­ГіГѕ Г¶ГЁГґГ°Гі ГЄ Г°ГҐГ§ГіГ«ГјГІГ ГІГі
   quotientResult.insert(quotientResult.begin(), quotientDigit);
   }
 
-  // Удаляем ведущие нули из результата
+  // Г“Г¤Г Г«ГїГҐГ¬ ГўГҐГ¤ГіГ№ГЁГҐ Г­ГіГ«ГЁ ГЁГ§ Г°ГҐГ§ГіГ«ГјГІГ ГІГ 
   while (quotientResult.size() > 1 && quotientResult.back() == 0) {
     quotientResult.pop_back();
   }
@@ -313,3 +312,4 @@ int main() {
 		  }     
       }
 }
+
