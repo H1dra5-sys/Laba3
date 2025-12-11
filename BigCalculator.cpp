@@ -17,15 +17,16 @@ vector <int> bigSum(vector <int> firstBigArray, vector <int> secondBigArray) {
   vector<int> theSumOfTheArrays;
   string firstHugeNumber, secondHugeNumber;
   int  theDigitInTheFirstHugeNumber, theNumberInYourMind, digitOfTheNumber, theDigitInTheSecondHugeNumber, theSumOfLargeNumbers, count;
+  char zeroAscii = '0'
 
   digitOfTheNumber = 0;
 
   for (count = firstHugeNumber.size() - 1; count >= 0; --count) {
-    firstBigArray.push_back(firstHugeNumber[count] - '0');
+    firstBigArray.push_back(firstHugeNumber[count] -  zeroAscii);
   }
 
   for (count = secondHugeNumber.size() - 1; count >= 0; --count) {
-    secondBigArray.push_back(secondHugeNumber[count] - '0');
+    secondBigArray.push_back(secondHugeNumber[count] -  zeroAscii);
   }
 
   theNumberInYourMind = 0;
@@ -312,4 +313,5 @@ int main() {
 		  }     
       }
 }
+
 
