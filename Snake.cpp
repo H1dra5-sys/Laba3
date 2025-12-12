@@ -4,7 +4,7 @@
 *************************/
 
 #include <iostream>   
-#include <conio.h>    // Äëÿ ðàáîòû ñ êëàâèàòóðîé
+#include <conio.h>    
 #include <windows.h>  
 
 using namespace std;
@@ -49,7 +49,6 @@ void renderGame() {
 
   for (row = 0; row < gameHeight; row++) {
     for (col = 0; col < gameWidth; col++) {
-      // Ëåâàÿ ãðàíèöà
       if (col == 0) {
         cout << "#";
       }
@@ -186,4 +185,5 @@ int main() {
 
   return 0;
 }
+
 
